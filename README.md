@@ -80,10 +80,11 @@ RunCockpit isn't notarized (no paid Apple Developer membership), so macOS quaran
 **Homebrew (recommended)**
 
 ```bash
-brew install --cask --no-quarantine greggoire/tap/run-cockpit
+brew install --cask greggoire/tap/run-cockpit
+xattr -dr com.apple.quarantine /Applications/RunCockpit.app
 ```
 
-`--no-quarantine` is required because the app isn't notarized; without it macOS reports the app as "damaged".
+The second command clears the quarantine flag Homebrew applies — required because the app isn't notarized; without it macOS reports the app as "damaged".
 
 **Direct download**
 
